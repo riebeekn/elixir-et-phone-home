@@ -1,9 +1,12 @@
 defmodule PhoneHome do
-  @moduledoc """
-  PhoneHome keeps the contexts that define your domain
-  and business logic.
+  import Ecto.Query
+  alias PhoneHome.Repo
+  alias PhoneHome.Extraterrestrial
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  # ===========================================================================
+  def list_extraterrestrials do
+    Extraterrestrial
+    |> order_by(:name)
+    |> Repo.all()
+  end
 end

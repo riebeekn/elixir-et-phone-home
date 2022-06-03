@@ -17,7 +17,8 @@ defmodule PhoneHomeWeb.Router do
   scope "/", PhoneHomeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+    live "/", ExtraterrestrialLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

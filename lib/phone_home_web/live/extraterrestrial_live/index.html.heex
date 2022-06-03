@@ -1,0 +1,21 @@
+<h1>Extraterrestrials</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Attempt</th>
+      <th>Attempt timestamp</th>
+    </tr>
+  </thead>
+  <tbody id="extraterrestrials">
+    <%= for extraterrestrial <- @extraterrestrials do %>
+      <tr id={"extraterrestrial-#{extraterrestrial.id}"}>
+        <td><%= extraterrestrial.name %></td>
+        <td><%= extraterrestrial.communication_status |> communication_status_display_value() %></td>
+        <td><%= extraterrestrial.communication_attempt |> communication_attempt_display_value() %></td>
+        <td><%= extraterrestrial.last_communication_attempt_timestamp |> last_communication_attempt_timestamp_display_value() %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
