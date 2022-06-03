@@ -1,11 +1,13 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     PhoneHome.Repo.insert!(%PhoneHome.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias PhoneHome.Extraterrestrial
+alias PhoneHome.Repo
+
+%Extraterrestrial{name: "Ayala"} |> Repo.insert!()
+%Extraterrestrial{name: "Bria"} |> Repo.insert!()
+%Extraterrestrial{name: "Chiana"} |> Repo.insert!()
+%Extraterrestrial{name: "Correllia"} |> Repo.insert!()
+%Extraterrestrial{name: "Dengar"} |> Repo.insert!()
+%Extraterrestrial{name: "Harishka"} |> Repo.insert!()
+%Extraterrestrial{name: "Jubal"} |> Repo.insert!()
+%Extraterrestrial{name: "Korben"} |> Repo.insert!()
+%Extraterrestrial{name: "Luminara"} |> Repo.insert!()
+%Extraterrestrial{name: "Noranti"} |> Repo.insert!()
