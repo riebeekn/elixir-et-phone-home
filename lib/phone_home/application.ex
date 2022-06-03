@@ -15,9 +15,11 @@ defmodule PhoneHome.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: PhoneHome.PubSub},
       # Start the Endpoint (http/https)
-      PhoneHomeWeb.Endpoint
+      PhoneHomeWeb.Endpoint,
       # Start a worker by calling: PhoneHome.Worker.start_link(arg)
       # {PhoneHome.Worker, arg}
+      # Start Oban
+      {Oban, oban_config()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -32,5 +34,11 @@ defmodule PhoneHome.Application do
   def config_change(changed, _new, removed) do
     PhoneHomeWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  # Conditionally disable queues or plugins here.
+  # For example on a staging environment
+  defp oban_config do
+    Application.fetch_env!(:phone_home, Oban)
   end
 end
