@@ -1,5 +1,6 @@
 defmodule PhoneHome.Repo.Migrations.CreateExtraterrestrials do
   use Ecto.Migration
+
   def change do
     create table(:extraterrestrials) do
       add :name, :string
