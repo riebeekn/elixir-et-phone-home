@@ -36,4 +36,19 @@ defmodule PhoneHome do
       |> Oban.insert()
     end)
   end
+
+  @pub_sub_topic "extraterrestrial"
+  # ===========================================================================
+  def subscribe_to_extraterrestrial_updates() do
+    Phoenix.PubSub.subscribe(PhoneHome.PubSub, @pub_sub_topic)
+  end
+
+  # ===========================================================================
+  def broadcast_extraterrestrial_update(extraterrestrial) do
+    Phoenix.PubSub.broadcast(
+      PhoneHome.PubSub,
+      @pub_sub_topic,
+      {:extraterrestrial_updated, extraterrestrial}
+    )
+  end
 end

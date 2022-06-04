@@ -27,6 +27,7 @@ defmodule PhoneHome.SpeakAndSpellWorker do
       status,
       attempt
     )
+    |> PhoneHome.broadcast_extraterrestrial_update()
   end
 
   # ===========================================================================
